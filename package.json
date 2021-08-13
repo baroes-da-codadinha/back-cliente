@@ -1,0 +1,35 @@
+{
+  "name": "back-cliente",
+  "version": "1.0.0",
+  "description": "**Uma regra importante:** cada usuário poderá ter apenas 1 restaurante e cada restaurante deverá ter apenas 1 usuário associado, portanto um relacionamento de 1 para 1.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/baroes-da-codadinha/back-cliente.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/baroes-da-codadinha/back-cliente/issues"
+  },
+  "homepage": "https://github.com/baroes-da-codadinha/back-cliente#readme",
+  "dependencies": {
+    "@supabase/supabase-js": "^1.21.1",
+    "bcrypt": "^5.0.1",
+    "cors": "^2.8.5",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1",
+    "knex": "^0.21.21",
+    "pg": "^8.7.1",
+    "yup": "^0.32.9",
+    "yup-locales": "^1.2.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.12"
+  }
+}
