@@ -16,8 +16,9 @@ rotas.post('/login', login);
 rotas.use(verificarLogin);
 
 // RESTAURANTES
-rotas.get('/restaurantes', listarRestaurantes);
 rotas.get('/restaurantes/:id', listarProdutosRestaurantes);
+rotas.post('/restaurantes', listarRestaurantes);
+
 
 
 module.exports = rotas;

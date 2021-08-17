@@ -1,11 +1,16 @@
 const knex = require('../conexao');
 
 const listarRestaurantes = async (req, res) => {
+    let restaurantes = '';
     try {
-        const { busca } = req.body;
+        if (req.body.busca) {
+            const { busca } = req.body;
 
-        const restaurantes = await knex('restaurantes')
-            .where('nome', 'like', `${busca}%`);
+            restaurantes = await knex('restaurantes')
+                .where('nome', 'like', `${busca}%`);
+        } else {
+            restaurantes = await knex('restaurantes');
+        }
 
         return res.status(200).json(restaurantes);
     } catch (error) {
