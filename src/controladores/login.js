@@ -8,7 +8,7 @@ const login = async (req, res) => {
     const { email, senha } = req.body;
 
     try {
-        await schemaLogin.validade(req.body);
+        await schemaLogin.validate(req.body);
         
         const consumidor = await knex('consumidor').where({ email }).first();
 

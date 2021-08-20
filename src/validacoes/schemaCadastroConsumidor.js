@@ -1,5 +1,4 @@
-const { update } = require('../conexao');
-const yup = require('./configuracoes');
+const yup = require('./configuracao');
 
 const schemaCadastroConsumidor = yup.object().shape({
     nome: yup.string().required('Campo nome é obrigatório.'),
