@@ -7,7 +7,7 @@ const verificarLogin = require('./filtros/verificarLogin');
 const rotas = express();
 
 // CADASTRO CONSUMIDOR
-rotas.post('consumidor', cadastrarConsumidor)
+rotas.post('/consumidor', cadastrarConsumidor)
 
 // LOGIN
 rotas.post('/login', login);
