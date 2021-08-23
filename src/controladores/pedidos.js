@@ -1,14 +1,32 @@
 const knex = require('../conexao');
 
-const cadastrarPedidos = async (req, res) => {
-    const { restaurante_id, carrinho, endereco } = req.body
-    
-    //carrinho = [{id,  quantidade}, {id, quantidade},]
-    try {
-        carrinho.forEach(produto => {
-            await knex('produtos').where({ id: produto.id, ativo: true });
+// const listarPedido = async (req, res) => {
+//     const { consumidor } = req;
 
-        });
+//     try {
+        
+//     } catch (error) {
+//         return res.status(400).json(error.message);
+//     }
+// }
+
+const cadastrarPedidos = async (req, res) => {
+    const { consumidor } = req;
+    
+    try {
+        const encontrarEndereco = await knex('endereco').where({ consumidor_id: consumidor.id }).first();
+
+        if (!encontrarEndereco) {
+            return res.status(404).json('Endereco não foi encontrado.');
+        }
+
+        const cadastrarPedido = await knex('pedido').insert({ consumidor_id: consumidor.id, restaurante_id: restaurante.id, endereco_id: encontrarEndereco.id, subtotal, taxa, total });
+
+        if (!cadastrarPedido) {
+            return res.status(404).json('Pedido não foi cadastrado.');
+        }
+
+        return res.status(200).json('Pedido Confirmado! Agora é só aguardar o seu pedido');
     } catch (error) {
         return res.status(400).json(error.message);
     }

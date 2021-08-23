@@ -19,6 +19,7 @@ CREATE TABLE pedido (
   consumidor_id integer NOT NULL,
   restaurante_id integer NOT NULL,
   endereco_id varchar(100) NOT NULL,
+  subtotal integer NOT NULL,
   taxa integer DEFAULT 0,
   total integer NOT NULL,
   FOREIGN KEY (consumidor_id) REFERENCES consumidor (id),
