@@ -4,7 +4,8 @@
   "description": "**Uma regra importante:** cada usuário poderá ter apenas 1 restaurante e cada restaurante deverá ter apenas 1 usuário associado, portanto um relacionamento de 1 para 1.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node src/index.js",
+    "dev": "nodemon ./src/index.js"
   },
   "repository": {
     "type": "git",
