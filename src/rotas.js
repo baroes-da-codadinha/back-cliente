@@ -4,7 +4,7 @@ const { listarRestaurantes, listarProdutosRestaurantes } = require('./controlado
 const { login } = require('./controladores/login');
 const verificarLogin = require('./filtros/verificarLogin');
 const cadastrarCarrinho = require('./controladores/carrinho');
-const cadastrarEndereco = require('./controladores/endereco');
+const { obterEndereco, cadastrarEndereco } = require('./controladores/endereco');
 
 const rotas = express();
 
@@ -21,6 +21,7 @@ rotas.use(verificarLogin);
 rotas.get('/restaurantes/:id', listarProdutosRestaurantes);
 rotas.post('/restaurantes', listarRestaurantes);
 rotas.post('/carrinho/:id', cadastrarCarrinho);
+rotas.get('/endereco', obterEndereco);
 rotas.post('/endereco', cadastrarEndereco);
 
 

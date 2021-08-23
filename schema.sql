@@ -18,11 +18,12 @@ CREATE TABLE pedido (
   id serial NOT NULL PRIMARY KEY,
   consumidor_id integer NOT NULL,
   restaurante_id integer NOT NULL,
+  endereco_id varchar(100) NOT NULL,
   taxa integer DEFAULT 0,
-  endereco varchar(100) NOT NULL,
   total integer NOT NULL,
   FOREIGN KEY (consumidor_id) REFERENCES consumidor (id),
-  FOREIGN KEY (restaurante_id) REFERENCES restaurantes (id)
+  FOREIGN KEY (restaurante_id) REFERENCES restaurantes (id),
+  FOREIGN KEY (endereco_id) REFERENCES endereco (id)
 );
 
 DROP TABLE IF EXISTS carrinho;
@@ -30,11 +31,13 @@ DROP TABLE IF EXISTS carrinho;
 CREATE TABLE carrinho (
   id serial NOT NULL PRIMARY KEY,
   consumidor_id integer NOT NULL,
+  restaurante_id integer NOT NULL,
   produto_id integer NOT NULL,
   nome_produto varchar(60) NOT NULL,
   preco integer NOT NULL,
   quantidade integer NOT NULL,
   FOREIGN KEY (consumidor_id) REFERENCES consumidor (id),
+  FOREIGN KEY (restaurante_id) REFERENCES restaurantes (id),
   FOREIGN KEY (produto_id) REFERENCES produtos (id)
 );
 
