@@ -12,7 +12,7 @@ const knex = require('../conexao');
 
 const cadastrarPedidos = async (req, res) => {
     const { consumidor } = req;
-    
+        
     try {
         const encontrarEndereco = await knex('endereco').where({ consumidor_id: consumidor.id }).first();
 
