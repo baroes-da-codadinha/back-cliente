@@ -7,9 +7,7 @@ const listarRestaurantes = async (req, res) => {
         const categorias = await knex('categorias');
 
         restaurantes = await knex('restaurantes')
-            .where('restaurantes.nome', 'like', `%${busca}%`);
-
-
+            .where('restaurantes.nome', 'ilike', `%${busca}%`);
 
         restaurantes.map(restaurante => {
             categorias.find(categoria => {
