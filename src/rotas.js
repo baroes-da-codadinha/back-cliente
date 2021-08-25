@@ -20,7 +20,7 @@ rotas.use(verificarLogin);
 
 // RESTAURANTES
 rotas.get('/restaurantes/:id', listarProdutosRestaurantes);
-rotas.post('/restaurantes', listarRestaurantes);
+rotas.get('/restaurantes', listarRestaurantes);
 
 // DADOS PARA CONSUMIDOR E RESTAURANTE
 rotas.post('/carrinho/:id', cadastrarCarrinho);
