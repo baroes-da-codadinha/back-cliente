@@ -13,6 +13,7 @@ const cadastrarCarrinho = async (req, res) => {
         }
 
         const listarCarinnho = await knex('carrinho').where({ consumidor_id: consumidor.id });
+        
         let carrinho, valorPagamento = 0;
 
         if (listarCarinnho.length == 0) {
