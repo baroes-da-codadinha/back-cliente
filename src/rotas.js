@@ -3,7 +3,6 @@ const cadastrarConsumidor = require('./controladores/consumidor');
 const { listarRestaurantes, listarProdutosRestaurantes } = require('./controladores/restaurantes');
 const { login } = require('./controladores/login');
 const verificarLogin = require('./filtros/verificarLogin');
-const cadastrarCarrinho = require('./controladores/carrinho');
 const { obterEndereco, cadastrarEndereco } = require('./controladores/endereco');
 const cadastrarPedidos = require('./controladores/pedidos');
 
@@ -23,7 +22,6 @@ rotas.get('/restaurantes/:id', listarProdutosRestaurantes);
 rotas.get('/restaurantes', listarRestaurantes);
 
 // DADOS PARA CONSUMIDOR E RESTAURANTE
-rotas.post('/carrinho/:id', cadastrarCarrinho);
 rotas.get('/endereco', obterEndereco);
 rotas.post('/endereco', cadastrarEndereco);
 rotas.post('/pedido', cadastrarPedidos);
