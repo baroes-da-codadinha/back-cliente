@@ -33,6 +33,7 @@ CREATE TABLE pedidos (
   subtotal integer NOT NULL,
   taxa integer DEFAULT 0,
   total integer NOT NULL,
+  entregue boolean DEFAULT FALSE,
   FOREIGN KEY (consumidor_id) REFERENCES consumidor (id),
   FOREIGN KEY (restaurante_id) REFERENCES restaurantes (id),
   FOREIGN KEY (endereco_id) REFERENCES endereco (id)
