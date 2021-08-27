@@ -1,4 +1,7 @@
 const knex = require('../conexao');
+const schemaCadastroItens = require('../validacoes/schemaCadastroItens');
+const schemaCadastroPedido = require('../validacoes/schemaCadastroPedido');
+
 
 const cadastrarPedidos = async (req, res) => {
     let total = 0;
@@ -12,6 +15,8 @@ const cadastrarPedidos = async (req, res) => {
     }
 
     try {
+        await schemaCadastroPedido.validate(req.body);
+
         const encontrarEndereco = await knex('endereco').where({ consumidor_id: consumidor.id }).first();
        
         if (!encontrarEndereco) {
@@ -27,6 +32,8 @@ const cadastrarPedidos = async (req, res) => {
         taxa = encontrarRestaurante.taxa_entrega
 
         for (const produto of carrinho) {
+            await schemaCadastroItens.validate(produto);
+
             const conferirProdutos = await knex('produtos')
             .where({ id: produto.id, nome: produto.nome, preco: produto.preco, restaurante_id, ativo: true }).first();
 

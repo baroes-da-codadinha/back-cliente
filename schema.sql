@@ -41,6 +41,7 @@ CREATE TABLE pedidos (
 DROP TABLE IF EXISTS itens;
 
 CREATE TABLE itens (
+  id serial NOT NULL PRIMARY KEY,
   pedidos_id integer NOT NULL,
   produto_id integer NOT NULL,
   nome varchar(100) NOT NULl,
