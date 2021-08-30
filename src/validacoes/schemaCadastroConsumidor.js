@@ -1,10 +1,10 @@
 const yup = require('./configuracao');
 
 const schemaCadastroConsumidor = yup.object().shape({
-    nome: yup.string().required('Campo nome é obrigatório.'),
-    email: yup.string().required('Campo email é obrigatório.').email(),
-    senha: yup.string().required().min(5),
-    telefone: yup.string().required('Campo telefone é obrigatório.')
+    telefone: yup.string().required('Campo telefone é obrigatório.'),
+    senha: yup.string().required('Campo senha é obrigatório.').min(5),
+    email: yup.string().required('Campo E-mail é obrigatório.').email(),
+    nome: yup.string().required('Campo nome é obrigatório.')    
 });
 
 module.exports = schemaCadastroConsumidor;
